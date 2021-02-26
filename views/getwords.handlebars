@@ -1,51 +1,23 @@
-<div class="bodyclass">
-  <!-- id="body" -->
-  <div id="top" class="row titlerow">
-    <div class="col-12">
-      <h1 class="text-center">MadLibs</h1>
+<div class='bodyclass'>
+  <div id='top' class='row titlerow'>
+    <div class='col-12'>
+      <h1 class='text-center'>MadLibs</h1>
     </div>
   </div>
-
-  <form id="inputform" class="inputform" action="madlibs" method="POST">
-    <div id="inputs" class="row inputbox databox">
-      <div class="col-10 offset-lg-1 inputarea">
-        <table>
-  {{#terms}}
-    <tr class="inputrow">
-      <td><span class="prompt">{{.}}</span></td>
-      <td>:</td>
-      <td><input type="text" maxlength="32" size="24" class="input" name="id{{@index}}" required></td>
-    </tr>
-  {{/terms}}
-        </table>
-        <br/>
-        <button class="button submitbutton" type="submit" id="submit" name="Submit">Submit</button>
-        <!-- v:onclick="onSubmit" -->
-      </div>
+  <form id='inputs' class='row inputbox' action='/madlib' method='POST'>
+    <div class='col-10 offset-lg-1 inputarea'>
+      <table>
+        {{#terms}}
+        <tr class='inputrow'>
+          <td><span class='prompt'>{{.}}</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' name='id{{@index}}' required></td>
+        </tr>
+        {{/terms}}
+      </table>
+      <br />
+      <button class='button submitbutton' id='submit' name='Submit'>Submit</button>
+      <button class='button submitbutton'><a href='/madlib' id='next'>New Madlib!</a></button>
     </div>
   </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -28,7 +28,7 @@ new Vue({
             return madlibs[this.getRandomMadlibIndex()];
         },
         useRandomMadlib() {
-            this.madlib = this.getRandomMadlib();
+            this.madlib = this.getRandomMadlib();            
         },
         backToGame() {
             window.location.href= '/madlibs';

@@ -4,7 +4,7 @@
 /*                    */
 /********************************************************************************/
 
-export const madlibs = [
+exports.madlibs = [
     {
         title : 'More Lights!',
         author : 'unknown',
