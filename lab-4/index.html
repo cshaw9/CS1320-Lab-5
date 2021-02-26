@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MadLibs</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Always give your HTML file an appropriate title -->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <link href="madlibs.css" rel="stylesheet" type="text/css">
+
+  <script src="madlibs.js"></script>
+
+  <script src="madlibcode.js"></script>
+
+  <!-- Optional JavaScript -->
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <!-- Include Vue from a CDN -->
+
+  <!-- development version, includes helpful console warnings -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- the following script requires Vue to be imported so comes after -->
+
+</head>
+<body>
+
+<div id="body" class="bodyclass">
+  <!-- GetWords HandleBars -->
+  <div id="top" class="row titlerow">
+    <div class="col-12">
+      <h1 class="text-center">MadLibs</h1>
+    </div>
+  </div>
+
+  <div class="inputs-div col-md-6" id="inputs-div">
+    <div id="inputs" class="row inputbox databox">
+      <div class="col-10 offset-lg-1 inputarea">
+        <form id="inputform" class="inputform">
+          <table>
+            <tr v-for="item in madlibItems()" class="inputrow">
+              <td><span class="prompt">{{item}}</span></td>
+              <td>:</td>
+              <td><input type="text" maxlength="32" size="24" class="input" required></td>
+            </tr>
+          </table>
+          <br/>
+          <button class="button submitbutton" type="submit" id="submit" name="Submit"
+  			  v-on:click="onSubmit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ShowMablib HandlerBars -->
+  <div id="result" class="row resultrow databox hide">
+    <div class="col-10 offset-1">
+      <div class="resulttext">
+        <h3 class="madlibTitle" id="madlibTitle"></h3>
+        <h4 class="madlibAuthor" id="madlibAuthor"></h4>
+        <p class="resultpara" id="resultpara">
+          Output text goes here
+        </p>
+      </div>
+      <button class="button nextbutton" id="next" name="Reset" v-on:click="nextMadlib">
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+	let idx = 0;
+    
+	function handleSubmit(e,madlib) {
+		e.preventDefault();
+		let items = [];
+		$(".input").each( (index,element) => { items.push(element.value); } );
+		for (v of items) {
+			if (v == "") return;
+		}
+    let result = replaceItems(madlib,items);
+    
+    //set madlib title and author here
+    $("#madlibTitle").text(madlib.title)
+    $("#madlibAuthor").text(madlib.author)
+
+		$("#resultpara").text(result);
+    $(".input").val(null);
+    $('.inputs-div').addClass("hide");
+
+		flip();
+	}
+		
+	function flip() {p
+		$(".databox").toggle();
+	}
+
+	function initVue() {
+        let app = new Vue( {
+            el: "#body",
+            data: { index: idx, madlibs: madlibs },
+            methods: {
+                nextMadlib: function() {
+                  this.index = Math.floor(Math.random() * madlibs.length);
+                  flip();
+                  $('.inputs-div').removeClass("hide");
+                },
+                madlib: function() {
+                  return this.madlibs[this.index];
+                },
+                madlibItems: function() {
+                  return getItems(this.madlib());
+                },
+                flip : flip,
+                onSubmit: function(e) {
+                  handleSubmit(e, this.madlib());
+                }
+            }
+
+        });
+  }
+		
+	$(function() { initVue(); });
+	
+	</script>
+</body>
+</html>

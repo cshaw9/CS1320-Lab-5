@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MadLibs</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Always give your HTML file an appropriate title -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link href="madlibs.css" rel="stylesheet" type="text/css">
+<script src='madlibs.js'></script> 
+<script src='madlibcode.js'></script> 
+<!-- Optional JavaScript --> 
+<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+<!-- Include Vue from a CDN --> 
+<!-- development version, includes helpful console warnings --> 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<!-- the following script requires Vue to be imported so comes after -->
+
+</head>
+<body>
+<div class='bodyclass'>
+  <div id='top' class='row titlerow'>
+    <div class='col-12'>
+      <h1 class='text-center'>MadLibs</h1>
+    </div>
+  </div>
+  <div id='inputs' class='row inputbox'>
+    <div class='col-10 offset-lg-1 inputarea'>
+      <table>
+        <tr class='inputrow'>
+          <td><span class='prompt'>nouns</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>person</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>verb</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>nouns</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>holiday</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>color</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>color</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>Adjective</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>verb/ed</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>vegetable</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>verb/ed</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>person</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>verb</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>verb</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+        <tr class='inputrow'>
+          <td><span class='prompt'>color</span></td>
+          <td>:</td>
+          <td><input type='text' maxlength="32" size='24' class='input' required></td>
+        </tr>
+      </table>
+      <br/>
+      <button class='button submitbutton' id='submit' name='Submit'>Submit</button>
+    </div>
+  </div>
+  <div id='result' class='row'>
+    <div class='col-10 offset-1'>
+      <div class='resulttext'>
+        <p> Did you ever have one of those days ? Well today Steven did! Mom
+          wanted to [verb] [nouns] up for [holiday] . Not just any lights,
+          [color] lights. [Adjective] [color] lights! [Adjective] bright red
+          lights. The only problem, they are a [verb/ed] mess! Not to mention
+          that there are some [vegetable], yellow and green lights [verb/ed]
+          in. " [person] !" I yell! This can\'t be done! She could [verb] I was
+          right and went out and [verb] some new shiny [color] lights! </p>
+      </div>
+      <button class='button nextbutton' id='next' name='Reset'>Next</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
