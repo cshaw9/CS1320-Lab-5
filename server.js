@@ -357,7 +357,6 @@ function requestMadlib(req,res)
          - You can make use of sessions to keep track of the madlib that was served to a user
             to render the results upon submit.
    */
-   console.log("requestMadlib");
    if (!req.session.currIndex) {    // madlib index tracked and saved in the session
       req.session.currIndex = 0;
    }
@@ -370,7 +369,6 @@ function requestMadlib(req,res)
    req.session.save();
 
    const currMadlib = madlibs[req.session.currIndex];
-   console.log(madlibs[req.session.currIndex]);
    res.render('getwords', { terms: getItems(currMadlib) });
 }
 
@@ -378,7 +376,6 @@ function requestMadlib(req,res)
 
 function displayResult(req,res)
 {
-   console.log("displayResult");
    /*
 
       Task: Fill in the code here to render the madlib results.
